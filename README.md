@@ -9,8 +9,5 @@ After downloading and starting the installer you need to select the folder where
 
 After the program has extracted all the files, you can run `iml_debug_configuration.bat` which will ask for the system structure (x64 or x32) and configure the iml file for debugging.
 
-And finally you can run the program on your IDE.
-
-### Linux
-To install the program you can use the command `git clone https://github.com/Fedi6431/Face-Detector.git` or you can simply download the zip file and extract it.
+And finally you can run the program on IntelliJ.
 
