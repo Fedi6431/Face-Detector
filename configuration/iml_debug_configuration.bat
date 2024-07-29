@@ -1,7 +1,7 @@
 @echo off 
-:menu
 title IML DEBUG CONFIGURATION PROGRAM
 
+:menu
 echo   /#######################################/
 echo  /### IML DEBUG CONFIGURATION PROGRAM ###/
 echo /#######################################/
@@ -13,26 +13,21 @@ echo.
 
 set /p structure="Please select an option (1 or 2): "
 
-:selection
-if "%structure%"=="1" goto x64
-if "%structure%"=="2" goto x86
-echo Invalid selection. Please try again.
-cls
-goto menu
+if "%structure%"=="1" (
+    set "data_structure=x64"
+    set "file_name=x64.iml"
+) else if "%structure%"=="2" (
+    set "data_structure=x86"
+    set "file_name=x86.iml"
+) else (
+    cls
+    goto menu
+)
 
-:x64
-echo Adding x64 data structure to IML configuration file 
+echo Adding %data_structure% data structure to IML configuration file 
 echo.
-copy "x64.iml" "../face-detector.iml"
-echo x64 data added to IML configuration file
-goto exit
-
-:x86
-echo Adding x86 data structure to IML configuration file 
-echo.
-copy "x86.iml" "../face-detector.iml"
-echo x86 data added to IML configuration file
-goto exit
+copy "%file_name%" "../face-detector.iml" >nul
+echo %data_structure% data added to IML configuration file
 
 :exit 
 echo.
